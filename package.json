@@ -1,0 +1,47 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.8.3",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "response-time": "^2.3.2",
+    "web-vitals": "^1.1.1"
+  },
+  "scripts": {
+    "start-node": "node index.js",
+    "start-react": "react-scripts start",
+    "build-react": "react-scripts build",
+    "lint": "eslint '**/*.{js,jsx}'",
+    "jesttestAPI": "jest --runInBand --testTimeout 999999 --collectCoverage true test/api_endpoint.test.js",
+    "test-react": "react-scripts test --coverage --watchAll=false --env=jsdom",
+    "pretest": "npm run lint",
+    "test": "react-scripts test --coverage --watchAll=false --env=jsdom && jest --runInBand --testTimeout 999999 --collectCoverage true test/api_endpoint.test.js",
+    "posttest": "echo All tests have been run!",
+    "start": "node index.js"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
