@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App cartId={777} />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -2,6 +2,8 @@
 var path = require('path'); // Populating the path property of the request
 var responseTime = require('response-time'); // For code timing checks for performance logging
 var logger = require('morgan'); // HTTP request logging
+
+var carts = require('./carts');
 var app = express();
 
 // Adds an X-Response-Time header to responses to measure response times
@@ -20,8 +22,7 @@ app.get('/', function (req, res) {
 app.use(express.static(path.join(__dirname, 'build')));
 
 // Rest API routes
-// app.use('/api/users', users);
-// app.use('/api/sessions', session);
+app.use('/api/carts', carts);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -41,7 +42,7 @@ if (app.get('env') === 'development') {
   });
 }
 
-// production error handler with no stacktraces exposed to users
+// production error handler with no stack traces exposed to users
 app.use(function (err, req, res, next) { // eslint-disable-line no-unused-vars
   console.log(err);
   if (err.status)
