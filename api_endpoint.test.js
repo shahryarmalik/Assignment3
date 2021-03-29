@@ -4,6 +4,14 @@ var assert = require('assert').strict;
 var app = require('./index.js');
 var request = require('supertest')(app);
 
+// Note that we launch the test as follows
+// "test-API": "jest --runInBand --testTimeout 999999 --collectCoverage true api_endpoint.test.js",
+// --runInBand tells Jest to run the tests serially in the current process rather than creating a
+// worker pool and parallelizing the tests across several workers.
+// This might only be needed such as in the case where the first test loggs in and gets a JWT
+// token that is then later used, or one test in some way getting any type of data ready
+// for later tests
+
 describe('Load testing operations', function () {
   // Wait until the database is up and connected to.
   // beforeAll(function (done) {
@@ -22,8 +30,8 @@ describe('Load testing operations', function () {
   // test("should allow registered user to login", function (done) {
   //   request.post("/api/sessions")
   //     .send({
-  //       email: 'apizapitest@sample.com',
-  //       password: 'abc123*'
+  //       email: 'test@sample.com',
+  //       password: 'jklfyei'
   //     })
   //     .end(function (err, res) {
   //       token = res.body.token;

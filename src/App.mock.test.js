@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import App from './App';
 import MockedCartItem from "./cartItem";
+
 jest.mock("./cartItem", () => {
   return function DummyCartItem(props) {
     return (

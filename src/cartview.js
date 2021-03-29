@@ -44,13 +44,9 @@ function CartView(props) {
       <>
         <div>
           <h1 data-testid="cart_heading_id">Shopping Cart</h1>
-          {/* {cart.cartItems.map((cartItemData, idx) =>
-            <CartItem key={idx} item={cartItemData} />
-          )} */}
           <ul style={{ listStyleType: 'none', padding: 0, margin: 0 }}>
             {cart.cartItems.map((cartItemData, idx) =>
               <li key={idx}>
-
                 <CartItem item={cartItemData} />
               </li>
             )}
