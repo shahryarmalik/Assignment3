@@ -12,6 +12,8 @@ var request = require('supertest')(app);
 // token that is then later used, or one test in some way getting any type of data ready
 // for later tests
 
+// Note: Would keep the endpoint as is, to hit, but would mock out the database.
+
 describe('Load testing operations', function () {
   // Wait until the database is up and connected to.
   // beforeAll(function (done) {
@@ -37,7 +39,7 @@ describe('Load testing operations', function () {
   //       token = res.body.token;
   //       userId = res.body.userId;
   //       assert.strictEqual(res.status, 201);
-  //       assert.strictEqual(res.body.msg, "Authorized", "Message should be AUthorized");
+  //       assert.strictEqual(res.body.msg, "Authorized", "Message should be Authorized");
   //       done();
   //     });
   // });
@@ -51,7 +53,7 @@ describe('Load testing operations', function () {
       });
   });
 
-  test("should error if cart id not vaalid", function (done) {
+  test("should error if cart id is not valid", function (done) {
     request.get(`/api/carts/0`)
       // .set('x-auth', token)
       .end(function (err, res) {

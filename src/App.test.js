@@ -82,9 +82,9 @@ describe('Test Suite for App Component', () => {
       }),
     })
 
-    render(<App cartId={777} />);
+    render(<App cartId={0} />);
     expect(await screen.findByTestId("error_heading_id")).toHaveTextContent('Failed to retrieve cart (Error: Cart ID was not found)')
-    expect(screen.queryByText("Shopping Cart")).toBeNull(); // Need to use queryBy as getBy would throw an error
+    expect(screen.queryByText("Shopping Cart")).toBeNull(); // Need to use queryBy because getBy would throw an error
   })
 
   test('radio button click shipping cost update is reflected', async () => {

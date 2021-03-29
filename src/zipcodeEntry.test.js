@@ -7,7 +7,7 @@ describe('Test Suite for CartView Component', () => {
   beforeAll(() => jest.spyOn(window, 'fetch'))
   afterAll(() => window.fetch.mockClear())
 
-  test('shipping cost update is reflected', async () => {
+  test('zipcode update is reflected in new tax calculation', async () => {
     window.fetch.mockResolvedValueOnce({
       status: 200,
       ok: true,
