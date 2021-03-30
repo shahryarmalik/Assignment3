@@ -4,6 +4,13 @@ var assert = require('assert').strict;
 var app = require('./index.js');
 var request = require('supertest')(app);
 
+// To hit production AWS!
+// var request = require('supertest')('https://www.mydomain.com/');
+
+// run locally, like in vscode debugger and test against that
+// var request = require('supertest')('http://localhost:3000');
+
+
 // Note that we launch the test as follows
 // "test-API": "jest --runInBand --testTimeout 999999 --collectCoverage true api_endpoint.test.js",
 // --runInBand tells Jest to run the tests serially in the current process rather than creating a
