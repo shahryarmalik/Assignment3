@@ -133,3 +133,23 @@ describe('Test Suite for App Component', () => {
     // expect(screen.getByRole('button')).toHaveAttribute('disabled')
   });
 });
+
+
+// How about HTML anchor link href testing?
+// expect(getByText("Click Me").href).toBe("https://www.test.com/")
+// expect(screen.getByRole('link')).toHaveAttribute('href', 'https://www.test.com');
+// const { getByTestId } = render(<a data-testid='link' href="https://test.com">Click Me</a>);
+// expect(getByTestId('link')).toHaveAttribute('href', 'https://test.com');
+// expect(document.querySelector("a").getAttribute("href")).toBe("/somewhere")
+
+// How about a button if just want to make sure it was clicked?
+// const onClick = jest.fn();
+// const { getByText } = render(<Button onClick={onClick} />);
+// fireEvent.click(getByText(/click me nao/i));
+// expect(onClick).toHaveBeenCalled();
+
+// Link to useful documentation, like RTL methods to find elements - get/find/query
+// https://testing-library.com/docs/react-testing-library/cheatsheet
+
+// Link to useful documentation on what can do with expect Jest calls from @testing-library/jest-dom
+// https://github.com/testing-library/jest-dom
