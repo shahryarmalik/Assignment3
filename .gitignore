@@ -70,3 +70,5 @@ build
 
 # Chrome debugger extension
 .chrome
+
+package-lock.json
