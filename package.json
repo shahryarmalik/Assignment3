@@ -22,6 +22,7 @@
     "start-node": "node index.js",
     "test-react": "react-scripts test --coverage --watchAll=false --env=jsdom",
     "test-API": "jest --runInBand --testTimeout 999999 --collectCoverage true api_endpoint.test.js",
+    "test" : "react-scripts test src/todoTitle.mock.test.js",
     "start": "node index.js"
   },
   "eslintConfig": {
