@@ -5,7 +5,6 @@ import CartView from './cartview';
 
 describe('Test Suite for CartView Component', () => {
   beforeAll(() => jest.spyOn(window, 'fetch'))
-  // afterEach(() => ???())
   afterAll(() => window.fetch.mockClear())
 
   test('shipping cost update is reflected', async () => {

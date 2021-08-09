@@ -6,16 +6,16 @@ let activeCarts = [
     cartID: "777",
     cartItems: [
       {
-        title: "Babolat Pure Drive 2021",
-        description: "Size - (4_1/4) | Color - (Blue)",
-        cost: 22900,
-        imageUrl: "https://m.media-amazon.com/images/I/51VCKN8qupL._AC_UL320_.jpg"
+        title: "Fresh Strawberries",
+        description: "Assorted sizes, 2 cartons",
+        cost: 200,
+        imageUrl: "stawberries.jpg"
       },
       {
-        title: "Vitamix Explorian Blender",
-        description: "64 oz. Low-Profile Container, Red",
-        cost: 28995,
-        imageUrl: "https://m.media-amazon.com/images/I/51L5EzDC76L._AC_UY218_.jpg"
+        title: "Fresh Blackberries",
+        description: "Assorted sizes, 2 cartons",
+        cost: 295,
+        imageUrl: "blackberries.jpg"
       }
     ]
   },
@@ -23,10 +23,10 @@ let activeCarts = [
     cartID: "888",
     cartItems: [
       {
-        title: "Jabra GN2000  Headset",
-        description: "USB Mono UC Corded | Color - (Black)",
-        cost: 2900,
-        imageUrl: "https://m.media-amazon.com/images/I/71Mf9Khp9gL._AC_UY218_.jpg"
+        title: "Yummy cookies",
+        description: "Flour and chocolate chips",
+        cost: 150,
+        imageUrl: "cookies.jpg"
       }
     ]
   }

@@ -15,7 +15,6 @@ import App from './App';
 // to view the report
 describe('Test Suite for App Component', () => {
   beforeAll(() => jest.spyOn(window, 'fetch'))
-  // afterEach(() => ???())
   afterAll(() => window.fetch.mockClear())
   // To set up a mock for more than one call, do the following
   // const fetchMock = jest.spyOn(global, 'fetch').mockImplementation(() => Promise.resolve({ json: () => Promise.resolve([]) }))

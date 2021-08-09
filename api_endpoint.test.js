@@ -1,6 +1,4 @@
-﻿// require('dotenv').config();
-var assert = require('assert').strict;
-
+﻿var assert = require('assert').strict;
 var app = require('./index.js');
 var request = require('supertest')(app);
 
@@ -36,6 +34,7 @@ describe('Load testing operations', function () {
     done();
   });
 
+  // An example of how to log in, if that were available
   // test("should allow registered user to login", function (done) {
   //   request.post("/api/sessions")
   //     .send({
