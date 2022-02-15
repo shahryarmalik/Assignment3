@@ -20,10 +20,13 @@ function MsgYNModal(props) {
 
   return (
     <Dialog
-      disableBackdropClick
-      disableEscapeKeyDown
       aria-labelledby="confirmation-dialog-title"
       open={open}
+      onClose={(event, reason) => {
+        if (reason !== 'backdropClick' && reason !== 'escapeKeyDown') {
+          onClose(event, reason)
+        }
+      }}
       {...other}
     >
       <DialogTitle id="confirmation-dialog-title">Confirmation Of Order</DialogTitle>
