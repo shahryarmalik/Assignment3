@@ -66,51 +66,32 @@ jobs:
         with:
           host: 13.59.154.56
           username: ubuntu
-name: Deploy React App on Assignment/Testing Server
-
-on:  
-  push:
-    branches:
-      - assignment
-  workflow_dispatch:
-  
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checking Out
-        uses: actions/checkout@v4
-     
-      - name: Setting Up Node JS
-        uses: actions/setup-node@v4
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            sudo apt-get update
+            sudo apt-get install -y ca-certificates curl gnupg 
+            sudo install -m 0755 -d /etc/apt/keyrings
+            curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+            sudo chmod a+r /etc/apt/keyrings/docker.gpg
+            echo \
+            "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+            $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+            sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+            sudo apt-get update
+            sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+            sudo docker run hello-world
+            
+      - name: Running Docker Build and Docker Container on Stagging Server
+        uses: appleboy/ssh-action@v1.0.0
         with:
-          node-version: 20
-        
-      - name: Testing Node Installation
-        run:  |
-          node --version
-
-      - name: Installing Dependencies
-        run: npm install
-
-
-      - name: Building Project
-        run: npm run build-react
-
-
-      - name: Testing The Project
-        run: npm run test-react
-
-
-      - name: Lint Testing The Project
-        run: npx eslint src/sum.js src/cartview.js src/shippingOptions.js
-
-
-      - name: Deploying To Assignment/Test Server
-        uses: burnett01/rsync-deployments@6.0.0
-        with:
-          switches: -avzr --delete
-          path: ./*
-          remote_path: ~/
-          remote_host: 13.59.154.56
-          remote_user: ubuntu
+          host: 13.59.154.56
+          username: ubuntu
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            sudo docker stop app
+            sudo docker rmi reactapp
+            sudo docker build . -t reactapp
+            sudo docker compose down
+            sudo docker compose up -d
